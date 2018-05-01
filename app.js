@@ -41,16 +41,20 @@ var pomodoro = {
 
   pauseTimer: function(){
     if (this.started === true) {
+      console.log('paused');
       this.started = false;
+      document.querySelector('#pause').innerHTML = 'Un-pause';
     } else if (this.started === false) {
+      console.log('unpaused');
       this.started = true;
+      document.querySelector('#pause').innerHTML = 'Pause';
     }
 
     this.updateDom();
   },
 
   resetTimer: function(){
-    console.log('reset clicked');
+    console.log('reset timer');
     this.resetVariables(25, 0, false);
     this.updateDom();
   },
