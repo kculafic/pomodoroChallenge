@@ -56,19 +56,19 @@ var pomodoro = {
   },
 
   resetTimer: function(){
-    document.querySelector('#pause').innerHTML = 'Go!';
+    document.querySelector('#pause').innerHTML = 'Begin';
     this.resetVariables(25, 0, false);
     this.updateDom();
   },
 
   resetShortBreak: function(){
-    document.querySelector('#pause').innerHTML = 'Go!';
+    document.querySelector('#pause').innerHTML = 'Begin';
     this.resetVariables(5, 0, false);
     this.updateDom();
   },
 
   resetLongBreak: function(){
-    document.querySelector('#pause').innerHTML = 'Go!';
+    document.querySelector('#pause').innerHTML = 'Begin';
     this.resetVariables(15, 0, false);
     this.updateDom();
   },
