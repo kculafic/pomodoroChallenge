@@ -1,6 +1,6 @@
 var pomodoro = {
   started: false,
-  minutes: 0,
+  minutes: 25,
   seconds: 0,
   interval: null,
   minutesDom: null,
@@ -16,16 +16,19 @@ var pomodoro = {
     }, 1000);
 
     document.querySelector('#start').onclick = function(){
-      console.log('timer started');
-      self.startWork.apply(self);
-    }
+      self.resetTimer.apply(self);
+    },
 
     document.querySelector('#pause').onclick = function(){
       self.pauseTimer.apply(self);
-    };
+    },
 
-    document.querySelector('#reset').onclick = function(){
-      self.resetTimer.apply(self);
+    document.querySelector('#short').onclick = function(){
+      self.resetShortBreak.apply(self);
+    },
+
+    document.querySelector('#long').onclick = function(){
+      self.resetLongBreak.apply(self);
     }
   },
 
@@ -37,15 +40,14 @@ var pomodoro = {
 
   startWork: function() {
     this.resetVariables(25, 0, true);
+    this.updateDom();
   },
 
   pauseTimer: function(){
     if (this.started === true) {
-      console.log('paused');
       this.started = false;
-      document.querySelector('#pause').innerHTML = 'Un-pause';
+      document.querySelector('#pause').innerHTML = 'Continue';
     } else if (this.started === false) {
-      console.log('unpaused');
       this.started = true;
       document.querySelector('#pause').innerHTML = 'Pause';
     }
@@ -54,8 +56,20 @@ var pomodoro = {
   },
 
   resetTimer: function(){
-    console.log('reset timer');
+    document.querySelector('#pause').innerHTML = 'Go!';
     this.resetVariables(25, 0, false);
+    this.updateDom();
+  },
+
+  resetShortBreak: function(){
+    document.querySelector('#pause').innerHTML = 'Go!';
+    this.resetVariables(5, 0, false);
+    this.updateDom();
+  },
+
+  resetLongBreak: function(){
+    document.querySelector('#pause').innerHTML = 'Go!';
+    this.resetVariables(15, 0, false);
     this.updateDom();
   },
 
@@ -66,12 +80,12 @@ var pomodoro = {
     return num;
   },
 
-  updateDom : function(){
+  updateDom: function(){
     this.minutesDom.innerHTML = this.toDoubleDigit(this.minutes);
     this.secondsDom.innerHTML = this.toDoubleDigit(this.seconds);
   },
 
-  intervalCountdown : function(){
+  intervalCountdown: function(){
     if(!this.started) return false;
     if(this.seconds == 0) {
       if(this.minutes == 0) {

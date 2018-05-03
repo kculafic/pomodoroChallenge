@@ -11,51 +11,62 @@
     <script src="app.js"></script>
 
   </head>
-  <body>
+    <body>
     <!-- our template -->
-    <section id="app" class="hero is-info is-fullheight is-bold">
-    <div class="hero-body">
-    <div class="container has-text-centered">
+      <section id="app" class="hero is-info is-fullheight is-bold">
+        <div class="hero-body">
+          <div class="container has-text-centered">
 
-      <h3 class="title is-6">Pomodoro Countdown Timer</h3>
+            <h1 class="title">Pomodoro Countdown Timer</h1>
 
-        <!--  THE TIMER NUMBERS  -->
-      <div id="timer">
-        <span id="minutes">25</span>
-        <span id="middle">:</span>
-        <span id="seconds">00</span>
+            <!--  THE TIMER NUMBERS  -->
+            <div id="timer">
+              <span id="minutes">25</span>
+              <span id="middle">:</span>
+              <span id="seconds">00</span>
+            </div>
+
+            <div id="buttons">
+              <!--   Start / Pause / Continue BUTTON   -->
+              <button
+                id="pause"
+                class="button is-dark is-large">
+                  <i class="far fa-pause-circle"></i>
+                Go!
+              </button>
+            </div>
+            <br/>
+
+          <h3 class="title is-6">Choose Your Interval:</h3>
+
+          <div>
+            <!--  START BUTTON    -->
+            <button
+              id="start"
+              class="button is-dark is-small">
+                <i class="far fa-play-circle"></i>
+              Pomodoro
+            </button>
+
+            <!--  Short Break BUTTON    -->
+            <button
+              id="short"
+              class="button is-dark is-small">
+                <i class="fas fa-undo"></i>
+                Short Break
+            </button>
+
+            <!--  Long Break BUTTON    -->
+            <button
+              id="long"
+              class="button is-dark is-small">
+                <i class="fas fa-undo"></i>
+                Long Break
+            </button>
+          </div>
+
+        </div>
       </div>
-
-      <!--  THE BUTTONS  -->
-      <div id="buttons">
-
-        <!--  START BUTTON    -->
-        <button
-          id="start"
-          class="button is-dark is-large">
-            <i class="far fa-play-circle"></i>
-          Start
-        </button>
-
-        <!--   PAUSE BUTTON   -->
-        <button
-          id="pause"
-          class="button is-dark is-large">
-            <i class="far fa-pause-circle"></i>
-          Pause
-        </button>
-
-        <!--  RESET BUTTON   -->
-        <button
-          id="reset"
-          class="button is-dark is-large">
-            <i class="fas fa-undo"></i>
-            Reset
-        </button>
-      </div>
-
-    </div>
-    </div>
     </section>
   </body>
 </html>
