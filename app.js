@@ -102,6 +102,7 @@ var pomodoro = {
 
   timerComplete : function(){
     this.started = false;
+    document.getElementById('babyalert').play();
     window.alert('Timer complete!')
   }
 };
