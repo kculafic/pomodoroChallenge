@@ -30,6 +30,7 @@ var pomodoro = {
     document.querySelector('#long').onclick = function(){
       self.resetLongBreak.apply(self);
     }
+
   },
 
   resetVariables: function(mins, secs, started){
@@ -63,7 +64,7 @@ var pomodoro = {
 
   resetShortBreak: function(){
     document.querySelector('#pause').innerHTML = 'Begin';
-    this.resetVariables(5, 0, false);
+    this.resetVariables(0, 5, false);
     this.updateDom();
   },
 
@@ -100,8 +101,12 @@ var pomodoro = {
     this.updateDom();
   },
 
-  timerComplete : function(){
+  alertSound: function() {
     document.getElementById('babyalert').play();
+  },
+
+  timerComplete: function(){
+    this.alertSound();
     this.started = false;
     window.alert('Timer complete!')
   }
