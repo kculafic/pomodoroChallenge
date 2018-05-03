@@ -64,7 +64,7 @@ var pomodoro = {
 
   resetShortBreak: function(){
     document.querySelector('#pause').innerHTML = 'Begin';
-    this.resetVariables(0, 5, false);
+    this.resetVariables(5, 0, false);
     this.updateDom();
   },
 
